@@ -1,0 +1,648 @@
+@charset "utf-8";
+* {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+/*a {*/
+    /*text-decoration: none;*/
+/*}*/
+
+#editor-container {
+    height: 600px;
+}
+
+.navbar {
+    margin-bottom: 0;
+}
+
+.w-nav-brand {
+    color: #ffffff;
+}
+
+.w-nav-brand:hover {
+    color: #ffffff;
+}
+
+.w-nav-header {
+    background-color: cornflowerblue;
+}
+
+.w-nav-info {
+    background: transparent;
+}
+
+.notebook-bar {
+    background-color: #F5F5F5;
+}
+
+.notebar {
+    /*height: calc(100vh - 4rem);*/
+}
+
+.bd-sidebar {
+    border-right: 1px solid #0000001a;
+}
+
+.pre-scrollable {
+    max-height: 700px;
+}
+
+.top_length {
+    top: 100px;
+}
+
+body {
+    height: 100vh;
+}
+
+.bd-addNote {
+    position: relative;
+    padding: 1rem 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, .05);
+    font-size: 18px;
+}
+
+.bd-addNote a {
+    width: 40%;
+    margin-left: 10%;
+    padding: 1rem 0;
+    color: #000;
+}
+
+.bd-addNote a:hover {
+    text-decoration: none;
+    color: #007BFF;
+}
+
+.fa-plus {
+    margin-left: 20%;
+    color: cornflowerblue;
+}
+
+.bd-search {
+    position: relative;
+    padding: 1rem 15px;
+    margin-right: -15px;
+    margin-left: -15px;
+    border-bottom: 1px solid rgba(0, 0, 0, .05);
+    font-size: 18px;
+}
+
+.bd-search input {
+    margin-top: -6px;
+    margin-bottom: -2px;
+}
+
+/*左侧栏效果*/
+.left-nav {
+    width: 100%;
+    background: transparent;
+    margin-bottom: 0px;
+    font-size: 18px;
+}
+
+.fa-trash {
+    color: grey;
+    margin: 5px 20px 10px 16px;
+}
+
+.left-nav a {
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+.modal-header .close {
+    margin-top: -20px;
+}
+
+.headimg {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* 对账户操作的列表 */
+.modifymenu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    min-width: 100px;
+    display: block;
+    float: left;
+    position: relative;
+    background: transparent;
+    z-index: 999;
+    top: 0;
+}
+
+.modifymenu a {
+    color: #F0F0F0;
+    display: block;
+    font-size: 18px;
+    line-height: 30px;
+    padding: 0 25px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+/* onhover styles */
+.modifymenu:hover {
+    color: #F5F5F5;
+}
+
+/* submenu styles */
+.submenu {
+    margin-top: 13px;
+    left: 0;
+    max-height: 0;
+    position: absolute;
+    top: 100%;
+    z-index: 0;
+
+    -webkit-perspective: 400px;
+    -moz-perspective: 400px;
+    -ms-perspective: 400px;
+    -o-perspective: 400px;
+    perspective: 400px;
+}
+
+.submenu li {
+    background: #FFFFFF;
+    list-style-type: none;
+    opacity: 0;
+
+    -webkit-transform: rotateY(90deg);
+    -moz-transform: rotateY(90deg);
+    -ms-transform: rotateY(90deg);
+    -o-transform: rotateY(90deg);
+    transform: rotateY(90deg);
+
+    -webkit-transition: opacity .4s, -webkit-transform .5s;
+    -moz-transition: opacity .4s, -moz-transform .5s;
+    -ms-transition: opacity .4s, -ms-transform .5s;
+    -o-transition: opacity .4s, -o-transform .5s;
+    transition: opacity .4s, transform .5s;
+}
+
+.submenu li a {
+    color: #909090;
+    font-size: 14px;
+}
+
+.submenu li:hover {
+    background: #ECECFF;
+    border-radius: 3px;
+}
+
+.submenu li:hover a {
+    color: #ACD0FF;
+}
+
+.modifymenu:hover .submenu li, .modifymenu:focus .submenu li {
+    opacity: 1;
+
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+}
+
+/* CSS3 delays for transition effects */
+.modifymenu:hover .submenu li:nth-child(1) {
+    -webkit-transition-delay: 0s;
+    -moz-transition-delay: 0s;
+    -ms-transition-delay: 0s;
+    -o-transition-delay: 0s;
+    transition-delay: 0s;
+}
+
+.modifymenu:hover .submenu li:nth-child(2) {
+    -webkit-transition-delay: 50ms;
+    -moz-transition-delay: 50ms;
+    -ms-transition-delay: 50ms;
+    -o-transition-delay: 50ms;
+    transition-delay: 50ms;
+}
+
+.modifymenu:hover .submenu li:nth-child(3) {
+    -webkit-transition-delay: 100ms;
+    -moz-transition-delay: 100ms;
+    -ms-transition-delay: 100ms;
+    -o-transition-delay: 100ms;
+    transition-delay: 100ms;
+}
+
+.submenu:nth-child(1) {
+    -webkit-transition-delay: 350ms;
+    -moz-transition-delay: 350ms;
+    -ms-transition-delay: 350ms;
+    -o-transition-delay: 350ms;
+    transition-delay: 350ms;
+}
+
+.submenu:nth-child(2) {
+    -webkit-transition-delay: 300ms;
+    -moz-transition-delay: 300ms;
+    -ms-transition-delay: 300ms;
+    -o-transition-delay: 300ms;
+    transition-delay: 300ms;
+}
+
+.submenu:nth-child(3) {
+    -webkit-transition-delay: 250ms;
+    -moz-transition-delay: 250ms;
+    -ms-transition-delay: 250ms;
+    -o-transition-delay: 250ms;
+    transition-delay: 250ms;
+}
+
+/*新建笔记中的样式*/
+.note-parent {
+    font-size: 16px;
+    width: 100%;
+    height: 60px;
+    margin-top: 3px;
+    border-bottom: 1px solid #E0E1E5;
+    border-radius: 10px;
+    padding: 20px 10px;
+}
+
+.note-parent:hover {
+    cursor: default;
+    background: #F5F5F5;
+}
+
+.note-icon {
+    position: relative;
+}
+
+.note-icon:before {
+    content: "\f016";
+    font-family: FontAwesome;
+    margin-left: 15%;
+    width: 20px;
+    height: 20px;
+    color: cornflowerblue;
+    float: left;
+}
+
+.note-title {
+    margin-left: 7%;
+    float: left;
+
+}
+
+/*新建文件夹中的样式*/
+
+.fa-folder-open {
+    margin: 5px 15px;
+    font-size: 18px;
+}
+
+#fileclick {
+    margin-left: 7px;
+    font-size: 16px;
+}
+
+.fa-folder-open {
+    color: grey;
+}
+
+.book-parent, #firstLink li {
+    width: 100%;
+    font-size: 17px;
+    height: 30px;
+    margin-top: 3px;
+    padding: 0px 10px;
+}
+
+/*选中后样式更改*/
+.book-parent:hover, #firstLink li:hover {
+    cursor: default;
+    background: #E0E1E5;
+    color: white;
+}
+
+.myfold:hover {
+    cursor: default;
+    background: #E0E1E5;
+    color: white;
+}
+
+.myfold a:hover {
+    text-decoration: none;
+}
+
+.book-icon {
+    position: relative;
+}
+
+.book-icon:before {
+    content: "\f114";
+    font-family: FontAwesome;
+    margin-left: 14%;
+    width: 20px;
+    height: 20px;
+    color: cornflowerblue;
+    float: left;
+}
+
+.book-title {
+    margin-left: 2%;
+    float: left;
+    color: #5e5e5e;
+
+}
+
+/*title style*/
+.editor-TITTLE {
+    height: 45px;
+    float: left;
+    width: 100%;
+    border-bottom: 0.1px solid black;
+}
+
+.editor-input {
+    padding-left: 1%;
+    font-size: 20px;
+    text-indent: 2px;
+    width: 78%;
+    height: 45px;
+    float: left;
+}
+
+#savebtn {
+    margin: 5px 10px 5px 25px;
+    height: 30px;
+    font-size: 16px;
+    background: transparent;
+    border: solid 0.7px;
+}
+
+#savebtn:hover {
+    color: cornflowerblue;
+}
+
+#sharebtn {
+    width: 30px;
+    padding: 0;
+    background: transparent;
+    color: gray;
+    margin-top: 5px;
+    height: 30px;
+    font-size: 25px;
+    -webkit-text-stroke: thin white;
+}
+
+#sharebtn:hover {
+    color: cornflowerblue;
+}
+
+/*add and remove tag*/
+ol, ul {
+    list-style: outside none none;
+}
+
+#container {
+    margin: 0 auto;
+    width: 60rem;
+}
+.mytags {
+    cursor: default;
+}
+.tags {
+    background: none repeat scroll 0 0 #fff;
+    border: 1px solid #ccc;
+    display: table;
+    padding: 0.5em;
+    width: 100%;
+    padding: 5px;
+    height: 36px;
+}
+
+#tagclick a:hover {
+    text-decoration: none;
+}
+
+.fa-tag {
+    color: cornflowerblue;
+    float: left;
+    text-align: center;
+    margin: 3px 3px;
+    font-size: 20px;
+}
+
+.tags li.tagAdd, .tags li.addedTag {
+    float: left;
+    margin-left: 0.25em;
+    margin-right: 0.25em;
+}
+
+.tags li.addedTag {
+    background: none repeat scroll 0 0 #bcd0c5;
+    border-radius: 2px;
+    color: grey;
+    padding: 0.25em;
+    font-size: 13px;
+}
+
+.tags input, li.addedTag {
+    border: 1px solid transparent;
+    border-radius: 2px;
+    box-shadow: none;
+    display: block;
+    padding: 0.5em;
+    height: 25px;
+}
+
+.tags input:hover {
+    border: 1px solid #000;
+}
+
+span.tagRemove {
+    cursor: pointer;
+    display: inline-block;
+    padding-left: 0.5em;
+}
+
+span.tagRemove:hover {
+    color: #222222;
+}
+
+/*左侧标签栏新建*/
+.foraddtag {
+    font-size: 16px;
+
+}
+.forappendtag {
+    font-size: 19px;
+    color: grey;
+    cursor: pointer;
+}
+.forappendtag a{
+    margin-left: 20%;
+    text-decoration: none;
+}
+.forappendtag span {
+    padding-left: 10px;
+    font-size: 10px;
+}
+
+
+
+/*分享链接的模态框的样式*/
+.shareLinks {
+    margin-bottom: 30px;
+}
+
+.shareLinks input {
+    width: 250px;
+    padding: 5px 5px;
+}
+
+.shareLinks button {
+    margin-left: 10px;
+}
+
+#shareModal span {
+    margin-left: 60px;
+}
+
+#shareModal img {
+    height: 30px;
+    width: 30px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+}
+
+#shareModal img:hover {
+    cursor: pointer;
+}
+
+#tagclick {
+    margin-left: 7px;
+    font-size: 16px;
+}
+
+.fa-tags {
+    margin: 5px 20px 10px 15px;
+    color: grey;
+}
+
+
+/*移动列表的模态框样式*/
+#moveBooklist .modal-body{
+    padding: 20px 18%;
+}
+#moveBooklist select{
+    margin-left: 20px;
+    padding: 0 10px;
+}
+
+/*右击菜单样式*/
+#contextify-menu {
+    width: 80px;
+    border: 1px solid #ccc;
+    position: absolute;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+    padding: 5px 0;
+    background: #FFFFFF;
+    display: none;
+    z-index: 99999;
+}
+
+#contextify-menu li {
+    list-style: none;
+    width: 100%;
+}
+
+#contextify-menu li a {
+    display: inline-block;
+    text-decoration: none;
+    color: #555;
+    width: 100%;
+    padding: 5px 0;
+    text-align: center;
+}
+
+#contextify-menu li:first-of-type {
+    border-radius: 5px 5px 0 0;
+}
+
+#contextify-menu li a:hover,
+#contextify-menu li a:active {
+    background: #eee;
+    color: #6495ED;
+}
+
+#contextify-menu .menuDivider {
+    height: 1px;
+    width: 100%;
+    background: #E6E6FA;
+}
+
+/*上传样式*/
+input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+input[type=submit] {
+	position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+	display:block;
+}
+
+
+.myupload {
+    float: left;
+    margin: 6px 18px;
+    font-size: 18px;
+    /*color: cornflowerblue;*/
+}
+.fa-refresh{
+    color: grey;
+}
+
+#upload_clear_btn  {
+    margin-top: 3px;
+    margin-left: 5px;
+    font-size: 16px;
+    color: #1C88BB;
+    background: transparent;
+    border: 0px;
+}
+.clear-button{
+    float: left;
+}
+.browse-button{
+    white-space: nowrap;
+    padding: 0 0;
+}
+
+
+/*点击事件*/
+.clickCss {
+    background: rgba(0, 12, 255, 0.21);
+}
